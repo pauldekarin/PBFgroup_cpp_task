@@ -45,6 +45,13 @@ make
 ```
 
 ## Usage
+
+Executable files located at directory:
+
+```bash
+/buid/bin
+```
+
 ### Running the Server
 To start the server on a specific port:
 
