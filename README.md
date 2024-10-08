@@ -19,11 +19,7 @@ The client takes the following parameters:
 3. Connection period (in seconds)
 
 The client connects to the server at regular intervals, defined by the period parameter, and sends a message in the format:
-[yyyy-mm-dd hh:mm
-.ms] "client_name"
-
-vbnet
-Копировать код
+[yyyy-mm-dd hh:mm.ms] "client_name"
 
 ### Server
 
@@ -42,45 +38,52 @@ The server takes one parameter: the port number on which it listens for incoming
 To compile the server and client, run the following commands in the project directory:
 
 ```bash
-g++ -o server server.cpp -lpthread
-g++ -o client client.cpp
-Usage
-Running the Server
+mkdir build
+cd build
+cmake ..
+make
+```
+
+## Usage
+### Running the Server
 To start the server on a specific port:
 
+```
 bash
-Копировать код
 ./server <port_number>
-For example:
+```
 
-bash
-Копировать код
-./server 3000
-Running the Clients
+### Running the Clients
 To start a client with a specific name, connecting to the server at regular intervals:
 
+```
 bash
-Копировать код
 ./client <client_name> <port_number> <period_in_seconds>
-For example:
+```
+For Example: 
 
+```
 bash
-Копировать код
 ./client Name1 3000 1
 ./client Name2 3000 2
 ./client Name3 3000 3
+
+```
 Example Output
 When the server is running and multiple clients are connected, the log.txt file will look similar to:
-
-csharp
-Копировать код
+```csharp
 [2018-09-19 13:50:01.000] Name1
 [2018-09-19 13:50:02.000] Name1
 [2018-09-19 13:50:02.010] Name2
 [2018-09-19 13:50:03.000] Name1
 [2018-09-19 13:50:03.010] Name3
 ...
-Project Structure
-server.cpp: Contains the server implementation.
-client.cpp: Contains the client implementation.
-log.txt: The file where the server logs client messages.
+```
+
+## Project Structure
+- server: Contains the server implementation.
+
+- client: Contains the client implementation.
+
+- common: Contains addictive library for both implementations.
+- log.txt: The file where the server logs client messages.
