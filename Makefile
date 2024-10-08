@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(CMAKE_COMMAND) -E cmake_progress_start /Users/bimba/Desktop/Projects/server_client_connections/CMakeFiles /Users/bimba/Desktop/Projects/server_client_connections/server//CMakeFiles/progress.marks
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bimba/Desktop/Projects/server_client_connections/CMakeFiles /Users/bimba/Desktop/Projects/server_client_connections//CMakeFiles/progress.marks
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
 	$(CMAKE_COMMAND) -E cmake_progress_start /Users/bimba/Desktop/Projects/server_client_connections/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/clean
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
 .PHONY : clean
 
 # The main clean target
@@ -103,80 +103,44 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/preinstall
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-# Convenience name for target.
-server/CMakeFiles/server.dir/rule:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/CMakeFiles/server.dir/rule
-.PHONY : server/CMakeFiles/server.dir/rule
+#=============================================================================
+# Target rules for targets named client
 
-# Convenience name for target.
-server: server/CMakeFiles/server.dir/rule
+# Build rule for target.
+client: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client
+.PHONY : client
+
+# fast build rule for target.
+client/fast:
+	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/client.dir/build.make client/CMakeFiles/client.dir/build
+.PHONY : client/fast
+
+#=============================================================================
+# Target rules for targets named server
+
+# Build rule for target.
+server: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server
 .PHONY : server
 
 # fast build rule for target.
 server/fast:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/build
+	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/build
 .PHONY : server/fast
-
-src/main.o: src/main.cpp.o
-.PHONY : src/main.o
-
-# target to build an object file
-src/main.cpp.o:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/main.cpp.o
-.PHONY : src/main.cpp.o
-
-src/main.i: src/main.cpp.i
-.PHONY : src/main.i
-
-# target to preprocess a source file
-src/main.cpp.i:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/main.cpp.i
-.PHONY : src/main.cpp.i
-
-src/main.s: src/main.cpp.s
-.PHONY : src/main.s
-
-# target to generate assembly for a file
-src/main.cpp.s:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/main.cpp.s
-.PHONY : src/main.cpp.s
-
-src/server.o: src/server.cpp.o
-.PHONY : src/server.o
-
-# target to build an object file
-src/server.cpp.o:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/server.cpp.o
-.PHONY : src/server.cpp.o
-
-src/server.i: src/server.cpp.i
-.PHONY : src/server.i
-
-# target to preprocess a source file
-src/server.cpp.i:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/server.cpp.i
-.PHONY : src/server.cpp.i
-
-src/server.s: src/server.cpp.s
-.PHONY : src/server.s
-
-# target to generate assembly for a file
-src/server.cpp.s:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(MAKE) $(MAKESILENT) -f server/CMakeFiles/server.dir/build.make server/CMakeFiles/server.dir/src/server.cpp.s
-.PHONY : src/server.cpp.s
 
 # Help Target
 help:
@@ -186,13 +150,8 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
+	@echo "... client"
 	@echo "... server"
-	@echo "... src/main.o"
-	@echo "... src/main.i"
-	@echo "... src/main.s"
-	@echo "... src/server.o"
-	@echo "... src/server.i"
-	@echo "... src/server.s"
 .PHONY : help
 
 
@@ -204,6 +163,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	cd /Users/bimba/Desktop/Projects/server_client_connections && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 
